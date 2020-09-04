@@ -2,29 +2,57 @@ import React from 'react';
 
 const Register = (props) => {
   return (
-    <div>
-    <form className="px-4 py-3">
-     <div className="form-group col-12 col-md-4 col-lg-4 mx-auto">
-   	 <label htmlFor="fullname">Fullname</label>
-   	 <input type="text" name= "fullname" class="form-control" id="fullname" />
-   	 </div>
-   	 <div className="form-group col-12 col-md-4 col-lg-4 mx-auto">
-   	 <label htmlFor="email">Email Address</label>
-   	 <input type="email" name= "email" class="form-control" id="email" />
-   	 </div>
-   	 <div className="form-group col-12 col-md-4 col-lg-4 mx-auto">
-   	 <label htmlFor="password">Password</label>
-   	 <input type="password" name= "password" class="form-control" id="password" />
-   	 </div>
-   	 <div className="form-group col-12 col-md-4 col-lg-4 mx-auto">
-   	 <label htmlFor="password">Confirm Password</label>
-   	 <input type="password" name= "password" class="form-control" id="password" />
-   	 </div>
-	<div className="form-group col-12 col-md-4 col-lg-4 mx-auto">
-	<button type="submit" class="btn btn-primary">Register</button>
-	</div>
-  </form>
+    <>
+   <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                  <div class="card-body">
+                    <form>
+                          <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">Fullname:</label>
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control" name="name" required autocomplete="name" autofocus />  
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="email" class="col-md-4 col-form-label text-md-right">Email Address:</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control" name="email"  required autocomplete="email" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password" class="col-md-4 col-form-label text-md-right">Password:</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control" name="password" required autocomplete="new-password" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confirm Password:</label>
+
+                            <div class="col-md-6">
+                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                  Register
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
+</>
+
   )
 }
 

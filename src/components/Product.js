@@ -1,9 +1,10 @@
 import React from 'react';
+import Card from './Card'
 
 const Product = (props) => {
   return (
     <div>
-    	Products Page
+    	<Card />
     </div>
   )
 }
