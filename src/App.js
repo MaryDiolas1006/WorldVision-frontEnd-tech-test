@@ -3,6 +3,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import CreateProduct from './components/CreateProduct';
 import Product from './components/Product';
+import CartForm from './components/CartForm';
 import MainNav from './components/MainNav';
 import {
   BrowserRouter as Router,
@@ -17,6 +18,10 @@ const App = () => {
       <Switch>
       <Route path='/create'>
       <CreateProduct />
+      </Route>
+
+      <Route path='/cart'>
+      <CartForm />
       </Route>
 
       <Route path='/register'>

@@ -22,6 +22,15 @@ const MainNav = (props) => {
       <li className="nav-item">
         <NavLink className="nav-link" to="/create">Create Product</NavLink>
       </li>
+      <li className="nav-item">
+        <NavLink className="nav-link" exact to="/cart">Cart</NavLink>
+      </li>
+      <li className="nav-item">
+        <NavLink className="nav-link" exact to="/transactions">Transactions</NavLink>
+      </li>
+      <li className="nav-item">
+        <NavLink className="nav-link" exact to="/admin">Admin</NavLink>
+      </li>
     </ul>
   </div>
 </nav>
