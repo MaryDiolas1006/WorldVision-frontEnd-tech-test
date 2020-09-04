@@ -1,6 +1,7 @@
 import React from 'react';
 import Login from './components/Login';
 import Register from './components/Register';
+import CreateProduct from './components/CreateProduct';
 import Product from './components/Product';
 import MainNav from './components/MainNav';
 import {
@@ -14,6 +15,9 @@ const App = () => {
       <Router>
        <MainNav />
       <Switch>
+      <Route path='/create'>
+      <CreateProduct />
+      </Route>
 
       <Route path='/register'>
         <Register />
