@@ -1,10 +1,13 @@
 import React from 'react';
 
-const Login = (props) => {
+const Register = (props) => {
   return (
-   
-   <div>
-   	 <form className="px-4 py-3">
+    <div>
+    <form className="px-4 py-3">
+     <div className="form-group col-12 col-md-4 col-lg-4 mx-auto">
+   	 <label htmlFor="fullname">Fullname</label>
+   	 <input type="text" name= "fullname" class="form-control" id="fullname" />
+   	 </div>
    	 <div className="form-group col-12 col-md-4 col-lg-4 mx-auto">
    	 <label htmlFor="email">Email Address</label>
    	 <input type="email" name= "email" class="form-control" id="email" />
@@ -14,24 +17,15 @@ const Login = (props) => {
    	 <input type="password" name= "password" class="form-control" id="password" />
    	 </div>
    	 <div className="form-group col-12 col-md-4 col-lg-4 mx-auto">
-   	  <input type="checkbox" class="form-check-input" id="checkbox" />
-        <label class="form-check-label" htmlFor="checkbox">
-          Remember me
-        </label>
-	</div>
+   	 <label htmlFor="password">Confirm Password</label>
+   	 <input type="password" name= "password" class="form-control" id="password" />
+   	 </div>
 	<div className="form-group col-12 col-md-4 col-lg-4 mx-auto">
-	<button type="submit" class="btn btn-primary">Sign in</button>
+	<button type="submit" class="btn btn-primary">Register</button>
 	</div>
   </form>
-  <div class=" col-12 col-md-4 col-lg-4 mx-auto">
-  <a class="dropdown-item" href="#">New around here? Sign up</a>
-  <a class="dropdown-item" href="#">Forgot password?</a>
-  </div>
-</div>
-
-   
-
+    </div>
   )
 }
 
-export default Login;
+export default Register;
