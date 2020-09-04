@@ -4,6 +4,7 @@ import Register from './components/Register';
 import CreateProduct from './components/CreateProduct';
 import Product from './components/Product';
 import CartForm from './components/CartForm';
+import TransactionForm from './components/TransactionForm';
 import MainNav from './components/MainNav';
 import {
   BrowserRouter as Router,
@@ -22,6 +23,10 @@ const App = () => {
 
       <Route path='/cart'>
       <CartForm />
+      </Route>
+
+      <Route path='/transactions'>
+      <TransactionForm />
       </Route>
 
       <Route path='/register'>
