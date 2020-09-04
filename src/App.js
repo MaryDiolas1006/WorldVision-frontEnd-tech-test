@@ -11,15 +11,15 @@ import {
 const App = () => {
     return (
       <Router>
-      <MainNav />
+       <MainNav />
       <Switch>
 
       <Route path='/login'>
-      <Login />
+        <Login />
       </Route>
 
       <Route path="/">
-      <Product />
+       <Product />
       </Route>
 
       </Switch>
