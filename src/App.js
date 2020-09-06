@@ -2,6 +2,7 @@ import React from 'react';
 import Login from './components/Login';
 import Register from './components/Register';
 import CreateProduct from './components/CreateProduct';
+import EditForm from './components/EditForm';
 import Product from './components/Product';
 import CartForm from './components/CartForm';
 import TransactionForm from './components/TransactionForm';
@@ -19,6 +20,10 @@ const App = () => {
       <Switch>
       <Route path='/create'>
       <CreateProduct />
+      </Route>
+
+       <Route path='/edit'>
+      <EditForm />
       </Route>
 
       <Route path='/cart'>
