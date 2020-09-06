@@ -32,10 +32,10 @@ const MainNav = (props) => {
     {/*Right Side Of Navbar*/}
       <ul className="navbar-nav ml-auto">
         <li className="nav-item">
-          <NavLink className="nav-link" exact to="/cart">Cart</NavLink>
-        </li>
-        <li className="nav-item">
           <NavLink className="nav-link" exact to="/transactions">Transactions</NavLink>
+        </li>
+         <li className="nav-item">
+          <NavLink className="nav-link" exact to="/cart">Cart</NavLink>
         </li>
         <li className="nav-item">
           <NavLink className="nav-link" to="/login">Login</NavLink>
