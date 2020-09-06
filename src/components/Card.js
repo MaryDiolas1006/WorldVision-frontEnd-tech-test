@@ -10,7 +10,7 @@ const Card = (props) => {
       </div>
 
       <div className="row mt-3">
-  	    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mx-auto">
+  	    <div class="col-12 col-sm-6 col-md-5 col-lg-4 mx-auto">
           <div class="card">
             <img src="https://fratellowatches.imgix.net/2019/04/Rolex-Submariner-2.jpg" class="card-img-top" alt="..." />
           <div class="card-body">
@@ -20,7 +20,7 @@ const Card = (props) => {
             <br />
             <input type="number" name="quantity" id="quantity" min="1" />
           <div className="row">
-       	    <button className="col-12 col-md-5 submit d-block btn-success mt-3 mx-auto">Add To Cart</button>
+       	    <button className="col-12 col-md-5 submit d-block btn-success mt-3 mx-auto">Add to Cart</button>
 
        	    <button className=" col-12 col-md-5 submit d-block mt-3 btn-info mx-auto">View</button>
           </div>
