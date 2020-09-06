@@ -2,6 +2,7 @@ import React from 'react';
 import Login from './components/Login';
 import Register from './components/Register';
 import CreateProduct from './components/CreateProduct';
+import SingleProduct from './components/SingleProduct';
 import EditForm from './components/EditForm';
 import Product from './components/Product';
 import CartForm from './components/CartForm';
@@ -20,6 +21,10 @@ const App = () => {
       <Switch>
       <Route path='/create'>
       <CreateProduct />
+      </Route>
+
+      <Route path='/view'>
+      <SingleProduct />
       </Route>
 
        <Route path='/edit'>
