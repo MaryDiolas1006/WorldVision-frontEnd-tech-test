@@ -7,6 +7,7 @@ import EditForm from './components/EditForm';
 import Product from './components/Product';
 import Cart from './components/Cart';
 import Transaction from './components/Transaction';
+import TransactionSingle from './components/TransactionSingle';
 import MainNav from './components/MainNav';
 import {
   BrowserRouter as Router,
@@ -41,8 +42,12 @@ const App = () => {
       <Cart />
       </Route>
 
-      <Route path='/transactions'>
+      <Route exact path='/transactions'>
       <Transaction />
+      </Route>
+
+       <Route exact path='/transactions/:id'>
+      <TransactionSingle />
       </Route>
 
       <Route exact path='/products/:id'>

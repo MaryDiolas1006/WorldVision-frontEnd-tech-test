@@ -1,48 +1,27 @@
 import React from 'react';
-import TableProduct from './partials/TableProduct';
+import {Link} from 'react-router-dom';
 
-const Transaction = () => {
-    return (
-        <div className="container">
-            <div className="row">
-                <div className="col-12">
 
-                    {/* Transaction headers */}
-                    <table className="table">
-                        <tbody>
-                            {/* transaction code */}
-                            <tr>
-                                <td>Transaction code</td>
-                                <td>__tranx_code__</td>
-                            </tr>
-                            {/* customer */}
-                            <tr>
-                                <td>Customer Name</td>
-                                <td>__fullname__</td>
-                            </tr>
-                            
+const Transaction = (props) => {
+  return (
+    <div className="container">
+    	<div className="row">
+    		<div className="col-12 col-md-8 col-lg-6 mx-auto">
 
-                            {/* purchased date */}
-                            <tr>
-                                <td>Purchased date</td>
-                                <td>__createdAt__</td>
-                            </tr>
-
-                            {/* status */}
-                            <tr>
-                                <td>Status</td>
-                                <td>_isComplete_</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                </div>
-                <div className="col-12">
-                    <TableProduct/>
-                </div>
-            </div>
-        </div>
-    );
+    		<ul className="list-group">
+    			<li className="list-group-item">
+    			<Link to="/transactions/_transId_">
+    				_transactioncode_
+    				<span className="badge badge-info">
+    				_status_
+    				</span>
+    			</Link>
+    			</li>
+    		</ul>
+    		</div>
+    	</div>
+    </div>
+  )
 }
 
 export default Transaction;
