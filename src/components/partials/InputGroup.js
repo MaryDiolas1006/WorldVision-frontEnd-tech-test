@@ -8,7 +8,8 @@ const InputGroup = (props) => {
         	type={props.type} 
         	name={props.name} 
         	id={props.name} 
-        	className="form-control" 
+        	 className={ props.type !== "file" ? "form-control" : "form-control-file"}
+          min={props.min} 
         	placeholder={props.placeholder} 
         	aria-describedby="helpId" />
     </div>

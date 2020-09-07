@@ -20,10 +20,6 @@ const App = () => {
       <Router>
        <MainNav />
       <Switch>
-      <Route path='/create'>
-      <CreateProduct />
-      </Route>
-
       <Route path='/view'>
       <SingleProduct />
       </Route>
@@ -48,8 +44,12 @@ const App = () => {
         <Login />
       </Route>
 
-      <Route path="/">
+      <Route exact path="/">
        <Product />
+      </Route>
+
+      <Route path='/create'>
+      <CreateProduct />
       </Route>
 
       </Switch>
