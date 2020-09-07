@@ -5,7 +5,7 @@ import CreateProduct from './components/CreateProduct';
 import SingleProduct from './components/SingleProduct';
 import EditForm from './components/EditForm';
 import Product from './components/Product';
-import CartForm from './components/CartForm';
+import Cart from './components/Cart';
 import TransactionForm from './components/TransactionForm';
 import MainNav from './components/MainNav';
 import {
@@ -28,10 +28,7 @@ const App = () => {
       <EditForm />
       </Route>
 
-      <Route path='/cart'>
-      <CartForm />
-      </Route>
-
+      
       <Route path='/transactions'>
       <TransactionForm />
       </Route>
@@ -50,6 +47,10 @@ const App = () => {
 
       <Route path='/create'>
       <CreateProduct />
+      </Route>
+
+       <Route path='/cart'>
+      <Cart />
       </Route>
 
       </Switch>
