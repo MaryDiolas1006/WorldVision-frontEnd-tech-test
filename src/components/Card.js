@@ -3,14 +3,8 @@ import React from 'react';
 const Card = (props) => {
   return (
     <div className="container">
-      <div className="row">
-        <div className="col-12 col-md-6 mx-auto">
-          <h1 className="text-center">Product Catalog</h1>
-        </div>
-      </div>
-
       <div className="row mt-3">
-  	    <div class="col-12 col-sm-6 col-md-5 col-lg-4 mx-auto">
+  	    <div class="col-12 col-sm-6 col-md-4 col-lg-4 mx-auto">
           <div class="card">
             <img src="https://fratellowatches.imgix.net/2019/04/Rolex-Submariner-2.jpg" class="card-img-top" alt="..." />
           <div class="card-body">
