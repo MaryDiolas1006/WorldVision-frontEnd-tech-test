@@ -13,12 +13,12 @@ const MainNav = (props) => {
         {/*Admin Dropdown*/}
 
         <li className="nav-item dropdown">
-          <Link 
+          <a 
             id="adminDropdown" 
             href="" 
             className="nav-link dropdown-toggle" 
             role="button" 
-            data-toggle="dropdown">Admin</Link>
+            data-toggle="dropdown">Admin</a>
             <div className="dropdown-menu">
               <NavLink className="dropdown-item" to="/create">Add Product</NavLink>
             </div>
