@@ -21,10 +21,6 @@ const App = () => {
        <MainNav />
       <Switch>
 
-       <Route path='/edit'>
-      <EditForm />
-      </Route>
-
       <Route path='/register'>
         <Register />
       </Route>
@@ -49,8 +45,12 @@ const App = () => {
       <Transaction />
       </Route>
 
-      <Route path='/products'>
+      <Route exact path='/products/:id'>
       <SingleProduct />
+      </Route>
+
+      <Route exact path='/products/:id/edit'>
+      <EditForm />
       </Route>
 
       </Switch>
