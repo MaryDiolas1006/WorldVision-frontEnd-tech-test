@@ -4,8 +4,8 @@ import RegisterForm from './RegisterForm';
 const Register = (props) => {
   return (
 <div className="container container-fluid">
-   <div class="row justify-content-center">
-        <div class="col-md-6">
+   <div className="row justify-content-center">
+        <div className="col-12 col-md-6 mx-auto">
             <RegisterForm />
         </div>
     </div>

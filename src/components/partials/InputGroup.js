@@ -5,7 +5,7 @@ const InputGroup = (props) => {
    <div className="form-group">
         <label htmlFor={props.name}>{props.displayName}</label>
         <input 
-        	type="text" 
+        	type={props.type} 
         	name={props.name} 
         	id={props.name} 
         	className="form-control" 
