@@ -4,24 +4,39 @@ import TableProductFooter from './TableProductFooter';
 
 const TableProduct = (props) => {
   return (
-    <>
-    <table class="table table-responsive table-striped col-10 ml-5 mb-4">
-        <thead>
-        <tr>
-            <th scope="col">Name</th>
-            <th scope="col">Price</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Subtotal</th>
-            <th scope="col">Actions</th>
-        </tr>
-        </thead>
-    <tbody>
-        <TableProductRow />
-    </tbody>
+    <div className="table-responsive">
+            <table className="table table-hover">
+                <thead>
+                    <tr>
+                        {/* Name */}
+                        <th scope="col">Name</th>
+                        {/* price */}
+                        <th scope="col">Price</th>
+                        {/* quantity */}
+                        <th scope="col">Quantiy</th>
+                        {/* subtotal */}
+                        <th scope="col">Subtotal</th>
+                        {/* action */}
+                        { 
+                            props.withAction ?  
+                            <th scope="col">Action</th> :
+                            <></>
+                        }
+                    </tr>
+                </thead>
+                <tbody>
+                    {/* productRow */}
+                    <TableProductRow withAction={props.withAction}/>
 
-        <TableProductFooter />
-    </table>
-    </>
+                </tbody>
+                {
+                    props.withAction ? 
+                    <TableProductFooter/> :
+                    <></>
+                }
+            </table>
+        </div> 
+
   )
 }
 

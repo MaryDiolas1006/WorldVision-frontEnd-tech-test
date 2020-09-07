@@ -6,7 +6,7 @@ import SingleProduct from './components/SingleProduct';
 import EditForm from './components/EditForm';
 import Product from './components/Product';
 import Cart from './components/Cart';
-import TransactionForm from './components/TransactionForm';
+import Transaction from './components/Transaction';
 import MainNav from './components/MainNav';
 import {
   BrowserRouter as Router,
@@ -20,17 +20,9 @@ const App = () => {
       <Router>
        <MainNav />
       <Switch>
-      <Route path='/view'>
-      <SingleProduct />
-      </Route>
 
        <Route path='/edit'>
       <EditForm />
-      </Route>
-
-      
-      <Route path='/transactions'>
-      <TransactionForm />
       </Route>
 
       <Route path='/register'>
@@ -51,6 +43,14 @@ const App = () => {
 
        <Route path='/cart'>
       <Cart />
+      </Route>
+
+      <Route path='/transactions'>
+      <Transaction />
+      </Route>
+
+      <Route path='/products'>
+      <SingleProduct />
       </Route>
 
       </Switch>

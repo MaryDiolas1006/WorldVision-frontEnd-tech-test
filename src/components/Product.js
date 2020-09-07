@@ -6,11 +6,11 @@ const Product = (props) => {
   return (
     <div className="container-fluid">
     	<div className="row">
-        <div className="col-12 col-md-3">
-          <h1 className="text-center mx-auto">Product Catalog</h1>
+        <div className="col-12 col-md-3 mx-auto">
+          <h1 className="text-center ">Product Catalog</h1>
         </div>
         </div>
-        <div className="row">
+        <div className="row mt-5">
         <div className="col-12 col-md-3">
              <ProductCard />
         </div>

@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link  } from 'react-router-dom';
 
 const ProductAdminControl = (props) => {
   return (
     <>
-    	<a href="" className="btn btn-warning my-1 w-100">Edit</a>
+    	<Link to="/products/edit" className="btn btn-warning my-1 w-100">Edit</Link>
 
         <a href="" className="btn btn-danger my-1 w-100">Edit</a>
     </>
