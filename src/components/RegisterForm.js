@@ -1,30 +1,49 @@
-import React from 'react';
+import React, {useState} from 'react';
 import InputGroup from './partials/InputGroup';
 
 const RegisterForm = (props) => {
+
+    const [ user, setUser ] = useState({
+        fullname:"",
+        email:"",
+        password:"",
+        confirmPassword:""
+    });
+
+    const handleChange = e => {
+        setUser({
+            ...user,
+            [e.target.name] : e.target.value
+        })
+    };
+
   return (
     <div>
     	<InputGroup
     		type="text"
     		name="fullname"
-    		displayName="Fullname:" 
+    		displayName="Fullname:"
+            handleChange = {handleChange}
     	 />
 
     	 <InputGroup
     		type="email"
     		name="email"
-    		displayName="Email:" 
+    		displayName="Email:"
+            handleChange = {handleChange} 
     	 />
     	 <InputGroup
     		type="password"
     		name="password"
-    		displayName="Password:" 
+    		displayName="Password:"
+            handleChange = {handleChange} 
     	 />
 
     	 <InputGroup
     		type="password"
     		name="confirmPassword"
-    		displayName="Confirm Password:" 
+    		displayName="Confirm Password:"
+            handleChange = {handleChange} 
     	 />
 
     	 <button className="btn btn-primary">Register</button>

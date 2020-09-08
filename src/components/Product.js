@@ -15,8 +15,8 @@ const Product = (props) => {
 
 
   let productList = products.map(product => (
-    <div className="row mt-5">
-    <div className="col-12 col-md-3" key={product._id}>
+    <div className="row mt-5" key={product._id} >
+    <div className="col-12 col-md-3">
 
       <ProductCard  product={product} />
       
@@ -28,7 +28,7 @@ const Product = (props) => {
   return (
     <div className="container-fluid">
     	<div className="row">
-        <div className="col-12 col-md-3 mx-auto">
+        <div className="col-12 col-md-3 mx-auto" >
           <h1 className="text-center ">Product Catalog</h1>
         </div>
         </div>

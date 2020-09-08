@@ -11,7 +11,9 @@ const InputGroup = (props) => {
         	 className={ props.type !== "file" ? "form-control" : "form-control-file"}
           min={props.min} 
         	placeholder={props.placeholder} 
-        	aria-describedby="helpId" />
+        	aria-describedby="helpId"
+          onChange={props.handleChange} 
+          />
     </div>
   )
 }
