@@ -26,7 +26,7 @@ const ProductCard = ({product, withDescription}) => {
              	 <Link to={`/products/${product._id}`} className="btn btn-primary my-1 w-100">View</Link>
             </div>
             <div className="card-footer">
-            	<ProductAdminControl />
+            	<ProductAdminControl id={product._id} />
             </div>
           </div>
   )

@@ -1,9 +1,27 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import ProductEditForm from './partials/ProductEditForm';
 import ProductCard from './partials/ProductCard';
+import {useParams} from 'react-router-dom';
 
 
 const EditForm = (props) => {
+
+
+     const {id} = useParams();
+
+    const [product, setProduct] = useState({
+        name:'',
+        image:'',
+        price:"",
+        description:''
+    });
+
+    useEffect(() => {
+        fetch(`https://backend-pushcart.herokuapp.com/products/${id}`)
+        .then(response => response.json())
+        .then(data => setProduct(data))
+    },[])
+
   return (
     <div className="container">
     	<div className="row">
@@ -13,10 +31,10 @@ const EditForm = (props) => {
             </div>
                 <div className="row">
                 <div className="col-12 col-md-6 ">
-                    <ProductEditForm />
+                    <ProductEditForm product={product} />
                 </div>
                 <div className="col-12 col-md-8 col-lg-5 mx-auto">
-                    <ProductCard />
+                    <ProductCard product={product} />
                 </div>
             </div>
         </div>

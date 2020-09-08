@@ -1,7 +1,12 @@
 import React from 'react';
 import InputGroup from './InputGroup';
 
+
 const ProductEditForm = () => {
+
+   
+
+
     return(
         <form>
             <InputGroup 

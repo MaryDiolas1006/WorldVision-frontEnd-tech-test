@@ -1,7 +1,23 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import TableProduct from './partials/TableProduct';
+import {useParams} from 'react-router-dom';
 
 const TransactionSingle = () => {
+
+    const {id} = useParams();
+
+    const [transaction, setTransaction] = useState({});
+
+    useEffect(() => {
+        fetch(`https://backend-pushcart.herokuapp.com/transactions/${id}`, {
+            headers: {
+                "Authorization" : `Bearer ${localStorage["appState"]}`
+            }
+        })
+        .then(response => response.json())
+        .then(data => setTransaction(data))
+    },[])
+
     return (
         <div className="container">
             <div className="row">
@@ -13,12 +29,12 @@ const TransactionSingle = () => {
                             {/* transaction code */}
                             <tr>
                                 <td>Transaction code</td>
-                                <td>__tranx_code__</td>
+                                <td>{transaction._id}</td>
                             </tr>
                             {/* customer */}
                             <tr>
                                 <td>Customer Name</td>
-                                <td>__fullname__</td>
+                                <td>{transaction.fullname}</td>
                             </tr>
                             
 
