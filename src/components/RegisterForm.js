@@ -17,8 +17,24 @@ const RegisterForm = (props) => {
         })
     };
 
+    const handleSubmit = e => {
+        e.proventDefault();
+        fetch("https://backend-pushcart.herokuapp.com/register", {
+            method: "post",
+            body: JSON.stringify(user),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then( response => response.json())
+        .then(data => {
+            console.log(data)
+        })
+    };
+
+
   return (
-    <div>
+    <form onSubmit={handleSubmit}>
     	<InputGroup
     		type="text"
     		name="fullname"
@@ -47,7 +63,8 @@ const RegisterForm = (props) => {
     	 />
 
     	 <button className="btn btn-primary">Register</button>
-    </div>
+    
+    </form>
   )
 }
 
