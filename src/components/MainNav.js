@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link, NavLink} from 'react-router-dom';
 
-const MainNav = (props) => {
+const MainNav = ({authUser}) => {
+
   return (
    <nav className="navbar navbar-expand-lg navbar-light bg-light">
   <Link className="navbar-brand" to="#">PushCart</Link>
@@ -12,17 +13,21 @@ const MainNav = (props) => {
     <ul className="navbar-nav mr-auto">
         {/*Admin Dropdown*/}
 
-        <li className="nav-item dropdown">
-          <a 
-            id="adminDropdown" 
-            href="" 
-            className="nav-link dropdown-toggle" 
-            role="button" 
-            data-toggle="dropdown">Admin</a>
-            <div className="dropdown-menu">
-              <NavLink className="dropdown-item" to="/create">Add Product</NavLink>
-            </div>
-        </li>
+           {
+                authUser.isAdmin ?
+            <li className="nav-item dropdown">
+              <a 
+                id="adminDropdown" 
+                href="" 
+                className="nav-link dropdown-toggle" 
+                role="button" 
+                data-toggle="dropdown">Admin</a>
+                <div className="dropdown-menu">
+                  <NavLink className="dropdown-item" to="/create">Add Product</NavLink>
+                </div>
+            </li>
+              : ""
+            }
                        
       <li className="nav-item">
         <NavLink className="nav-link" exact to="/">Product</NavLink>
@@ -37,15 +42,22 @@ const MainNav = (props) => {
          <li className="nav-item">
           <NavLink className="nav-link" exact to="/cart">Cart</NavLink>
         </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" to="/login">Login</NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" exact to="/register">Register</NavLink>
-        </li>
-        <li className="nav-item">
-          <NavLink className="nav-link" exact to="/logout">Logout</NavLink>
-        </li>
+
+        {
+          !authUser.isAuth ?
+          <>
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/login">Login</NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" exact to="/register">Register</NavLink>
+          </li>
+          </>
+          :
+          <li className="nav-item">
+            <NavLink className="nav-link" to="/logout" >Logout</NavLink>
+          </li>
+        }
       </ul>
   </div>
 </nav>

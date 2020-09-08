@@ -9,6 +9,7 @@ import Cart from './components/Cart';
 import Transaction from './components/Transaction';
 import TransactionSingle from './components/TransactionSingle';
 import MainNav from './components/MainNav';
+import Logout from './components/Logout';
 import {
   BrowserRouter as Router,
   Switch,
@@ -50,7 +51,7 @@ const App = () => {
 
     return (
       <Router>
-       <MainNav />
+       <MainNav authUser={authUser} />
       <Switch>
 
       <Route path='/register'>
@@ -58,7 +59,7 @@ const App = () => {
       </Route>
 
       <Route path='/login'>
-        <Login />
+        <Login authUser ={authUser} setAuthUser={setAuthUser} />
       </Route>
 
       <Route exact path="/">
@@ -87,6 +88,10 @@ const App = () => {
 
       <Route exact path='/products/:id/edit'>
       <EditForm />
+      </Route>
+
+      <Route path='/logout'>
+      <Logout setAuthUser={setAuthUser} />
       </Route>
 
       </Switch>
