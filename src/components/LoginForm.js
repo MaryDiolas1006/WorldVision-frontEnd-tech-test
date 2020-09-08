@@ -60,8 +60,15 @@ const LoginForm = (props) => {
         })
 
 			.then(data => {
-				console.log(data)
-				setIsLoading(false)
+				// check the token and save to local storage
+				if(data.token){
+					localStorage["appState"] = data.token
+					setIsSuccess(true)
+				}else {
+
+					setIsLoading(false)
+				}
+				// console.log(data)
 			});
 
 	}

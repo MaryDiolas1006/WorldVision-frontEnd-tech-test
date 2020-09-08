@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Login from './components/Login';
 import Register from './components/Register';
 import CreateProduct from './components/CreateProduct';
@@ -16,6 +16,37 @@ import {
 } from 'react-router-dom'; 
 
 const App = () => {
+
+   const [authUser, setAuthUser] = useState({
+    isAuth: false,
+    _id:"",
+    fullname:"",
+    email:""
+  });
+
+  useEffect(() => {
+    let appState = localStorage["appState"];
+    if(appState){
+      fetch("https://backend-pushcart.herokuapp.com/users/profile", {
+        headers: {
+          "Authorization" : `Bearer ${appState}`
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        if(data._id){
+          setAuthUser({
+            isAuth: true,
+            _id: data._id,
+            fullname:data.fullname,
+            email:data.email,
+            isAdmin:data.isAdmin
+          });
+        }
+        // console.log(data)
+      })
+    }
+  },[]);
 
     return (
       <Router>
