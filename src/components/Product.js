@@ -17,7 +17,9 @@ const Product = (props) => {
   let productList = products.map(product => (
     <div className="row mt-5">
     <div className="col-12 col-md-3">
-      <ProductCard />
+
+      <ProductCard product={product} />
+      
     </div>
     </div>
     ))
