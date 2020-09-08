@@ -26,11 +26,11 @@ const RegisterForm = (props) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        fetch("https://backend-pushcart.herokuapp.com/register", {
+        fetch("https://backend-pushcart.herokuapp.com/users/register", {
             method: "post",
             body: JSON.stringify(user),
             headers: {
-                'Content-Type': 'application/json'
+                "Content-Type": "application/json"
             }
         })
         .then( response => {
