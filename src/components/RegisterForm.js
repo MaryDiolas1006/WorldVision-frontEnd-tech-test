@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import InputGroup from './partials/InputGroup';
+import AlertMessage from './partials/AlertMessage';
 
 const RegisterForm = (props) => {
 
@@ -10,6 +11,12 @@ const RegisterForm = (props) => {
         confirmPassword:""
     });
 
+    const [ error, setError ] = useState({
+        hasError: false,
+        color: "danger",
+        message: "Check Your Credentials"
+    })
+
     const handleChange = e => {
         setUser({
             ...user,
@@ -18,7 +25,7 @@ const RegisterForm = (props) => {
     };
 
     const handleSubmit = e => {
-        e.proventDefault();
+        e.preventDefault();
         fetch("https://backend-pushcart.herokuapp.com/register", {
             method: "post",
             body: JSON.stringify(user),
@@ -26,7 +33,22 @@ const RegisterForm = (props) => {
                 'Content-Type': 'application/json'
             }
         })
-        .then( response => response.json())
+        .then( response => {
+            console.log(response.status)
+            if(response.status === 400)  {
+                setError({
+                ...error, 
+                hasError:true
+            })
+        }else {
+            setError({ 
+                hasError:true,
+                color: "success",
+                message: "Please login to continue"
+            })
+           return response.json()
+        }
+        })
         .then(data => {
             console.log(data)
         })
@@ -35,6 +57,14 @@ const RegisterForm = (props) => {
 
   return (
     <form onSubmit={handleSubmit}>
+    {
+        error.hasError ?
+        <AlertMessage 
+        color={error.color}
+        message={error.message}/>
+        : <></>
+    }
+
     	<InputGroup
     		type="text"
     		name="fullname"
