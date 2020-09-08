@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 const ProductCard = ({product, withDescription}) => {
   return (
     <div className="card">
-            <img src="https://via.placeholder.com/150" className="card-img-top" />
+            <img src={`https://backend-pushcart.herokuapp.com/${product.image}`} className="card-img-top" />
             <div className="card-body">
               <h5 className="card-title">{product.name}</h5>
               <p className="card-text">&#8369;{product.price} </p>
