@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import ProductAddToCart from './ProductAddToCart';
 import ProductAdminControl from './ProductAdminControl';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 
-const ProductCard = ({product, withDescription}) => {
+const ProductCard = ({product, withDescription, setIsRedirect}) => {
+
   return (
     <div className="card">
             <img src={`https://backend-pushcart.herokuapp.com/${product.image}`} className="card-img-top" />
@@ -26,7 +27,7 @@ const ProductCard = ({product, withDescription}) => {
              	 <Link to={`/products/${product._id}`} className="btn btn-primary my-1 w-100">View</Link>
             </div>
             <div className="card-footer">
-            	<ProductAdminControl id={product._id} />
+            	<ProductAdminControl setIsRedirect={setIsRedirect} id={product._id} />
             </div>
           </div>
   )

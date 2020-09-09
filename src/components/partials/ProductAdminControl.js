@@ -1,12 +1,31 @@
 import React from 'react';
-import { Link  } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
-const ProductAdminControl = ({id}) => {
+const ProductAdminControl = ({id, setIsRedirect }) => {
+
+const handleClick = () => {
+	fetch(`https://backend-pushcart.herokuapp.com/products/${id}`, {
+		method: "delete",
+		headers: {
+			"Authorization" : `Bearer ${localStorage['appState']}`
+		}
+	})
+	.then(res => res.json())
+	.then(data => {
+		console.log(data)
+		setIsRedirect(true)
+	})
+}
+
+
   return (
     <>
     	<Link to={`/products/${id}/edit`} className="btn btn-warning my-1 w-100">Edit</Link>
 
-        <a href="#" className="btn btn-danger my-1 w-100">Edit</a>
+        <button 
+        className="btn btn-danger my-1 w-100"
+        onClick={handleClick}
+        >Delete</button>
     </>
   )
 }

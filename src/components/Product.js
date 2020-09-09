@@ -1,10 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import ProductCard from './partials/ProductCard';
+import {Redirect} from 'react-router-dom';
 
 
 const Product = (props) => {
 
   const [ products, setProducts ] = useState([]);
+
+  const [isRedirect, setIsRedirect] = useState(false)
+
 
   useEffect(() => {
     fetch("https://backend-pushcart.herokuapp.com/products") 
@@ -13,12 +17,22 @@ const Product = (props) => {
 
     },[]);
 
+  useEffect(() => {
+    setProducts(products.filter(product => {
+      // return product._id !== deletedProduct._id
+    }))
+  },[])
+
+  if(isRedirect) {
+    return <Redirect to="/" />
+  }
+
 
   let productList = products.map(product => (
       
       <div className="col-12 col-md-3 mt-5" key={product._id}>
 
-      <ProductCard  product={product} />
+      <ProductCard setIsRedirect={setIsRedirect} product={product} />
       
     </div>
     ))
