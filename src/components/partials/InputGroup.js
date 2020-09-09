@@ -13,6 +13,7 @@ const InputGroup = (props) => {
         	placeholder={props.placeholder} 
         	aria-describedby="helpId"
           onChange={props.handleChange} 
+          value={props.value}
           />
     </div>
   )

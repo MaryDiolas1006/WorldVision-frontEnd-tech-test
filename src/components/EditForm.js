@@ -16,11 +16,20 @@ const EditForm = (props) => {
         description:''
     });
 
+
+    const [isLoading, setIsLoading] = useState(true)
+
     useEffect(() => {
         fetch(`https://backend-pushcart.herokuapp.com/products/${id}`)
         .then(response => response.json())
-        .then(data => setProduct(data))
+        .then(data => {
+            setProduct(data)
+            setIsLoading(false)
+        })
     },[])
+
+
+
 
   return (
     <div className="container">
@@ -31,7 +40,12 @@ const EditForm = (props) => {
             </div>
                 <div className="row">
                 <div className="col-12 col-md-6 ">
+
+                {
+                    !isLoading ?
                     <ProductEditForm product={product} />
+                    : ""
+                }
                 </div>
                 <div className="col-12 col-md-8 col-lg-5 mx-auto">
                     <ProductCard product={product} />
