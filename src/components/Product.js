@@ -15,12 +15,11 @@ const Product = (props) => {
 
 
   let productList = products.map(product => (
-    <div className="row mt-5" key={product._id} >
-    <div className="col-12 col-md-3">
+      
+      <div className="col-12 col-md-3 mt-5" key={product._id}>
 
       <ProductCard  product={product} />
       
-    </div>
     </div>
     ))
 
@@ -32,7 +31,9 @@ const Product = (props) => {
           <h1 className="text-center ">Product Catalog</h1>
         </div>
         </div>
+        <div className="row">
           {productList}
+        </div>
     </div>
   )
 }

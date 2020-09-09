@@ -1,12 +1,20 @@
 import React, {useState, useEffect} from 'react';
 import TableProduct from './partials/TableProduct';
 import {useParams} from 'react-router-dom';
+import TransactionHeader from './partials/TransactionHeader';
 
 const TransactionSingle = () => {
 
     const {id} = useParams();
 
-    const [transaction, setTransaction] = useState({});
+    const [transaction, setTransaction] = useState({
+        _id: "",
+        customerId: {
+            fullname: ""
+        }
+    });
+
+    const [isLoading, setIsLoading] = useState(true)
 
     useEffect(() => {
         fetch(`https://backend-pushcart.herokuapp.com/transactions/${id}`, {
@@ -15,7 +23,12 @@ const TransactionSingle = () => {
             }
         })
         .then(response => response.json())
-        .then(data => setTransaction(data))
+        .then(data => {
+            if(data) {
+                setIsLoading(false)
+            }
+         setTransaction(data) 
+    })
     },[])
 
     return (
@@ -23,38 +36,20 @@ const TransactionSingle = () => {
             <div className="row">
                 <div className="col-12">
 
-                    {/* Transaction headers */}
-                    <table className="table">
-                        <tbody>
-                            {/* transaction code */}
-                            <tr>
-                                <td>Transaction code</td>
-                                <td>{transaction._id}</td>
-                            </tr>
-                            {/* customer */}
-                            <tr>
-                                <td>Customer Name</td>
-                                <td>{transaction.fullname}</td>
-                            </tr>
-                            
-
-                            {/* purchased date */}
-                            <tr>
-                                <td>Purchased date</td>
-                                <td>__createdAt__</td>
-                            </tr>
-
-                            {/* status */}
-                            <tr>
-                                <td>Status</td>
-                                <td>_isComplete_</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                {
+                    !isLoading ? 
+                   <TransactionHeader transaction={transaction} />
+                   : "Loading..."
+                }
 
                 </div>
                 <div className="col-12">
-                    <TableProduct/>
+
+                {
+                    transaction.orders ?
+                    <TableProduct orders={transaction.orders} />
+                    : "Loading..."
+                }
                 </div>
             </div>
         </div>

@@ -2,7 +2,13 @@ import React from 'react';
 import TableProductRow from './TableProductRow';
 import TableProductFooter from './TableProductFooter';
 
-const TableProduct = (props) => {
+const TableProduct = ({orders, withAction}) => {
+
+
+let orderList = orders.map(order => {
+    return <TableProductRow key={order._id} order={order} withAction={withAction} />
+})
+
   return (
     <div className="table-responsive">
             <table className="table table-hover">
@@ -18,7 +24,7 @@ const TableProduct = (props) => {
                         <th scope="col">Subtotal</th>
                         {/* action */}
                         { 
-                            props.withAction ?  
+                            withAction ?  
                             <th scope="col">Action</th> :
                             <></>
                         }
@@ -26,11 +32,11 @@ const TableProduct = (props) => {
                 </thead>
                 <tbody>
                     {/* productRow */}
-                    <TableProductRow withAction={props.withAction}/>
+                    {orderList}
 
                 </tbody>
                 {
-                    props.withAction ? 
+                    withAction ? 
                     <TableProductFooter/> :
                     <></>
                 }
