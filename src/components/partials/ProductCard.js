@@ -3,7 +3,7 @@ import ProductAddToCart from './ProductAddToCart';
 import ProductAdminControl from './ProductAdminControl';
 import {Link, Redirect} from 'react-router-dom';
 
-const ProductCard = ({product, withDescription, setIsRedirect}) => {
+const ProductCard = ({product, withDescription, setIsRedirect, setDeletedProduct}) => {
 
   return (
     <div className="card">
@@ -27,7 +27,7 @@ const ProductCard = ({product, withDescription, setIsRedirect}) => {
              	 <Link to={`/products/${product._id}`} className="btn btn-primary my-1 w-100">View</Link>
             </div>
             <div className="card-footer">
-            	<ProductAdminControl setIsRedirect={setIsRedirect} id={product._id} />
+            	<ProductAdminControl setDeletedProduct={setDeletedProduct} setIsRedirect={setIsRedirect} id={product._id} />
             </div>
           </div>
   )

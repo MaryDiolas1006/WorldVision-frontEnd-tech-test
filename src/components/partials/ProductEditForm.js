@@ -41,12 +41,13 @@ const ProductEditForm = (props) => {
         method: "put",
         headers: {
             'Authorization' : `Bearer ${localStorage['appState']}`
-        }
+        },
+        body: formData
      })
      .then(res => res.json())
      .then(data => {
-        setIsRedirect(true)
         console.log(data)
+        setIsRedirect(true)
      })
    }
 
@@ -56,7 +57,7 @@ const ProductEditForm = (props) => {
            ...props.product,
            image: ""
        })
-   }, [props.product])
+   },[props.product])
 
 
    if(isRedirect) {

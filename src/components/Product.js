@@ -7,7 +7,9 @@ const Product = (props) => {
 
   const [ products, setProducts ] = useState([]);
 
-  const [isRedirect, setIsRedirect] = useState(false)
+  const [isRedirect, setIsRedirect] = useState(false);
+
+  const [deletedProduct, setDeletedProduct] = useState({});
 
 
   useEffect(() => {
@@ -18,21 +20,20 @@ const Product = (props) => {
     },[]);
 
   useEffect(() => {
-    setProducts(products.filter(product => {
-      // return product._id !== deletedProduct._id
+    if(deletedProduct){
+      setProducts(products.filter(product => {
+      return product._id !== deletedProduct._id
     }))
-  },[])
 
-  if(isRedirect) {
-    return <Redirect to="/" />
-  }
+    }
+  },[deletedProduct])
 
 
   let productList = products.map(product => (
       
       <div className="col-12 col-md-3 mt-5" key={product._id}>
 
-      <ProductCard setIsRedirect={setIsRedirect} product={product} />
+      <ProductCard setDeletedProduct={setDeletedProduct} setIsRedirect={setIsRedirect} product={product} />
       
     </div>
     ))

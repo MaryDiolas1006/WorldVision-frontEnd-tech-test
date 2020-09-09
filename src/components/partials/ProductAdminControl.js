@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 
-const ProductAdminControl = ({id, setIsRedirect }) => {
+const ProductAdminControl = ({id, setIsRedirect, setDeletedProduct }) => {
 
 const handleClick = () => {
 	fetch(`https://backend-pushcart.herokuapp.com/products/${id}`, {
@@ -14,6 +14,7 @@ const handleClick = () => {
 	.then(data => {
 		console.log(data)
 		setIsRedirect(true)
+		setDeletedProduct({_id: id})
 	})
 }
 
