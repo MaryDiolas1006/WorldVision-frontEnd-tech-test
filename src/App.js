@@ -25,6 +25,29 @@ const App = () => {
     email:""
   });
 
+   const [cart, setCart] = useState({
+    orders: []
+   });
+
+   const addToCart = (id, quantity) => {
+     setCart({
+      orders: [
+        ...cart.orders,
+        {
+          productId : id,
+          quantity: quantity
+        }
+      ]
+     })
+   }
+
+   const removeToCart = id => {
+    let updatedOrders = cart.orders.filter(order => order.productId !== id)
+    setCart({
+      orders: updatedOrders
+    })
+   }
+
   useEffect(() => {
     let appState = localStorage["appState"];
     if(appState){

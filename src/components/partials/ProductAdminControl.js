@@ -14,7 +14,10 @@ const handleClick = () => {
 	.then(data => {
 		console.log(data)
 		setIsRedirect(true)
-		setDeletedProduct({_id: id})
+		if(setDeletedProduct){
+			setDeletedProduct({_id: id})
+
+		}
 	})
 }
 
